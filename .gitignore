@@ -1,0 +1,13 @@
+# README.md
+__pycache__
+# app.py
+database.db
+database.db-journal
+env
+init_db.py
+# package-lock.json
+# package.json
+requirements.txt
+schema.sql
+static/dist
+templates/scratch.html
