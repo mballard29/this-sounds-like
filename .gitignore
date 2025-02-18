@@ -7,7 +7,6 @@ env
 init_db.py
 package-lock.json
 package.json
-requirements.txt
 schema.sql
 templates/scratch.html
 .DS_Store
