@@ -34,3 +34,11 @@ Enter a Genius.com album page's url to search for who created and contributed to
     <a href="https://genius.com/" class="link-light">Genius.com</a>. 
     This will take the form of <code>'https://genius.com/albums/&ltartist name>/&ltalbum name>'</code>. 
 </p>
+<h4>Future improvements</h4>
+
+- [ ] Does an album page have a released date for albums (versus sporadic release dates listed in credits on each track)?
+- [ ] Utilize Genius's list of alternate album covers to also display on track detail pages
+- [ ] Host on a publicly available site
+- [ ] Create links at the bottom of each track card to visit the actual Genius page, or scrape lyrical content for easy access
+- [ ] Make detail pages 2 lanes wide, and reserve the third for annotations (would require building out an annotation functionality, refactoring the db schema)
+
