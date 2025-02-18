@@ -11,3 +11,4 @@ requirements.txt
 schema.sql
 static/dist
 templates/scratch.html
+.DS_Store
