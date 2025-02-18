@@ -2,7 +2,7 @@
 ### a web application powered by Python, Flask, and BeautifulSoup
 
 
-Activate a python virtual environment, download dependent packages, set (export) FLASK_APP to `app.py` and FLASK_ENV to `development`, run `flask run`, and open `localhost:5000`
+Create and activate a python virtual environment, download dependent packages, set (export) FLASK_APP to `app.py` and FLASK_ENV to `development`, run `flask run`, and open `localhost:5000`
 
 
 ![Landing page](demo-pictures/homescreen.png)
@@ -36,7 +36,7 @@ Enter a Genius.com album page's url to search for who created and contributed to
 </p>
 <h4>Future improvements</h4>
 
-- [ ] Does an album page have a released date for albums (versus sporadic release dates listed in credits on each track)?
+- [ ] Does an album page have a "release date" for albums (versus sporadic release dates listed in credits on each track)?
 - [ ] Utilize Genius's list of alternate album covers to also display on track detail pages
 - [ ] Host on a publicly available site
 - [ ] Create links at the bottom of each track card to visit the actual Genius page, or scrape lyrical content for easy access
