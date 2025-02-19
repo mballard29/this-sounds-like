@@ -36,6 +36,7 @@ Enter a Genius.com album page's url to search for who created and contributed to
 </p>
 <h4>Future improvements</h4>
 
+- [ ] Extend functionality to work for singles/specific songs (that don't have album links available
 - [ ] Change color of color theme selector to something other than blue
 - [ ] Does an album page have a "release date" for albums (versus sporadic release dates listed in credits on each track)?
 - [ ] Utilize Genius's list of alternate album covers to also display on track detail pages
