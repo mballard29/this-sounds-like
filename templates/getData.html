@@ -229,20 +229,23 @@
         <!-- album cover with title and artist -->
         <div class="col-sm-6 col-lg-4 mb-4">
           <div class="card">
-            <!-- <svg
-              class="bd-placeholder-img card-img-top"
-              width="100%"
-              height="200"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: Image cap"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false" >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#868e96" />
-              <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-            </svg> -->
-            <img src={{artwork_link}} alt="Album artwork" class="img-fluid">
+            {% if artwork_link ==  None %}
+              <svg
+                class="bd-placeholder-img card-img-top"
+                width="400"
+                height="400"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Placeholder: Image cap"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false" >
+                <title>Placeholder</title>
+                <rect width="100%" height="400" fill="#868e96" />
+                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Artwork Not Available</text>
+              </svg>
+            {% else %}
+              <img src={{artwork_link}} alt="Album artwork" class="img-fluid">
+            {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{album['title']}}</h5>
               <p class="card-text">

@@ -129,7 +129,7 @@ def getArtwork(link):
       art = soup.find('img', class_='cover_art-image')      
 
     if art == None:
-      return r'https://t2.genius.com/unsafe/544x544/https%3A%2F%2Fimages.genius.com%2F981de6518d55142c24c27c898dbc6ef7.512x512x1.jpg'
+      return art
 
     return art['src']
 
