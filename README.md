@@ -22,7 +22,7 @@ Enter a Genius.com page's url for an album or song to search for who created and
 ### About
 <h4>What is this?</h4>
 <p class="lead">
-    A website that collects the credits of your favorite albums.
+    A web application that collects the credits of your favorite albums and songs.
 </p>
 <h4>How?</h4>
 <p class="lead">
