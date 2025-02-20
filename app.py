@@ -25,7 +25,7 @@ def truncate_tables():
     conn.commit()
     conn.close()
 
-def get_album(link):
+def getAlbum(link):
     if link.find('https://genius.com/albums/') == -1:
         return 404
 
@@ -89,7 +89,7 @@ def index():
         if not albumLink:
             return redirect(url_for('index'))
         # If cannot get valid page
-        if get_album(albumLink) == 404:
+        if getAlbum(albumLink) == 404:
             return redirect(url_for('index'))
 
         conn = get_db_connection()
