@@ -3,6 +3,7 @@ from werkzeug.exceptions import abort
 import sqlite3
 import requests
 from bs4 import BeautifulSoup
+import re
 
 app = Flask(__name__)
 
@@ -163,17 +164,25 @@ def getData(album_id):
     artwork_link = getArtwork(album['link'])
     tracks = conn.execute(f'SELECT * FROM Tracks WHERE album_id={album_id};').fetchall()
 
-    tracklist = []
-    for i, track in enumerate(tracks):
-        # get credits
-        roll = conn.execute(f"SELECT field, names FROM Credits WHERE track_id={track['id']};").fetchall()
-        # 1, Ride, [(field, names), (field, names)...]
-        t = [i+1, track['title'], roll]
-        tracklist.append(t)
+    if album['link'].find('album') != -1:
+      tracklist = []
+      for i, track in enumerate(tracks):
+          roll = conn.execute(f"SELECT field, names FROM Credits WHERE track_id={track['id']};").fetchall()
+          # 1, Ride, [(field, names), (field, names)...]
+          t = [i+1, track['title'], roll]
+          tracklist.append(t)
 
-    conn.close()
+      conn.close()
+      return render_template('getData.html', album=album, artwork_link=artwork_link, tracklist=tracklist)
 
-    if album['title'].find('Single-') != -1:
-      album = {'title':album['title'][7:], 'artist':album['artist']}
+    # get song page
+    album = {'title':album['title'][7:], 'artist':album['artist']}
+    credit = []
+    roll = conn.execute(f"SELECT field, names FROM Credits WHERE track_id={tracks[0]['id']};").fetchall()
 
-    return render_template('getData.html', album=album, artwork_link=artwork_link, tracklist=tracklist)
+    for r in roll:
+      # Field, (name, ...)
+      names = re.split(', | & ', r['names'])
+      credit.append((r['field'], names))
+
+    return render_template('getSongData.html', album=album, artwork_link=artwork_link, credit=credit)
