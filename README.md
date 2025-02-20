@@ -36,7 +36,9 @@ Enter a Genius.com album page's url to search for who created and contributed to
 </p>
 <h4>Future improvements</h4>
 
-- [ ] Extend functionality to work for singles/specific songs (that don't have album links available)
+- [x] Extend functionality to work for singles/specific songs (that don't have album links available)
+  - sort of: some song pages don't have album artwork links to be scraped
+  - treating individual songs to be scraped as singles (hierarchical table structure) can lead to database bloat and (unhelpful) redundancy (higher normalization)(doesn't degrade performance right now)
 - [x] Change color of color theme selector to something other than blue
 - [ ] Does an album page have a "release date" for albums (versus sporadic release dates listed in credits on each track)?
 - [ ] Utilize Genius's list of alternate album covers to also display on track detail pages
