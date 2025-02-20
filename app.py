@@ -183,7 +183,10 @@ def getData(album_id):
 
     for r in roll:
       # Field, (name, ...)
-      names = re.split(', | & ', r['names'])
+      if (r['field'].find('Released') == -1) and (r['field'].find('Remixes') == -1) and (r['field'].find('Interpolate') == -1):
+        names = re.split(', | & ', r['names'])
+      else:
+        names = [r['names']]
       credit.append((r['field'], names))
 
     return render_template('getSongData.html', album=album, artwork=artwork, credit=credit)
