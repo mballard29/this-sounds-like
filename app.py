@@ -126,13 +126,14 @@ def getArtwork(link):
     soup = BeautifulSoup(req.content, 'html.parser')
     
     art = soup.find('img', class_='SizedImage-sc-39a204ed-2')
-    if art == None:
-      art = soup.find('img', class_='cover_art-image')      
+    if art != None:
+      return art['src']
 
-    if art == None:
-      return art
+    art = soup.find('img', class_='cover_art-image')
+    if art != None:
+      return art['src']
 
-    return art['src']
+    return None
 
 # ------------------------------------------------------------------------------
 @app.route('/', methods=['GET', 'POST'])
@@ -161,7 +162,7 @@ def about():
 def getData(album_id):
     conn = get_db_connection()
     album = conn.execute(f'SELECT * FROM Albums WHERE id={album_id};').fetchone()
-    artwork_link = getArtwork(album['link'])
+    artwork = getArtwork(album['link'])
     tracks = conn.execute(f'SELECT * FROM Tracks WHERE album_id={album_id};').fetchall()
 
     if album['link'].find('album') != -1:
@@ -173,7 +174,7 @@ def getData(album_id):
           tracklist.append(t)
 
       conn.close()
-      return render_template('getData.html', album=album, artwork_link=artwork_link, tracklist=tracklist)
+      return render_template('getData.html', album=album, artwork=artwork, tracklist=tracklist)
 
     # get song page
     album = {'title':album['title'][7:], 'artist':album['artist']}
@@ -185,4 +186,4 @@ def getData(album_id):
       names = re.split(', | & ', r['names'])
       credit.append((r['field'], names))
 
-    return render_template('getSongData.html', album=album, artwork_link=artwork_link, credit=credit)
+    return render_template('getSongData.html', album=album, artwork=artwork, credit=credit)

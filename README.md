@@ -45,9 +45,11 @@ Enter a Genius.com page's url for an album or song to search for who created and
   - treating individual songs to be scraped as singles (hierarchical table structure) can lead to database bloat and (unhelpful) redundancy (higher normalization)(doesn't degrade performance right now)
   - [x] is the formatting of an album page still the best presentation of info for individual songs, or does it need a unique layout (path)
 - [x] Change color of color theme selector to something other than blue
-- [ ] Does an album page have a "release date" for albums (versus sporadic release dates listed in credits on each track)?
-- [ ] Utilize Genius's list of alternate album covers to also display on track detail pages
+- [x] Utilize Genius's list of alternate album covers to also display on track detail pages
+  - data not available in page source, is dynamically loaded (not easily scraped)
 - [ ] Host on a publicly available site
 - [ ] Create links at the bottom of each track card to visit the actual Genius page, or scrape lyrical content for easy access
 - [ ] Make detail pages 2 lanes wide, and reserve the third for annotations (would require building out an annotation functionality, refactoring the db schema)
+- [ ] Does an album page have a "release date" for albums (versus sporadic release dates listed in credits on each track)?
+  - would have to refactor db
 
