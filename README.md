@@ -51,6 +51,7 @@ Enter a Genius.com page's url for an album or song to search for who created and
 - [ ] Create desktop application version
 - [ ] Create links at the bottom of each track card to visit the actual Genius page, or scrape lyrical content for easy access
 - [ ] Color elements of screen based on colors of album
+- [ ] Navbar background color on getData page(s)
 - [ ] Create flush db button for first page (index)
 - [ ] Make detail pages 2 lanes wide, and reserve the third for annotations (would require building out an annotation functionality, refactoring the db schema)
 - [ ] Does an album page have a "release date" for albums (versus sporadic release dates listed in credits on each track)?
