@@ -53,6 +53,8 @@ Enter a Genius.com page's url for an album or song to search for who created and
 - [ ] Color elements of screen based on colors of album
 - [ ] Navbar background color on getData page(s)
 - [ ] Create flush db button for first page (index)
+- [ ] Refactor using MVC architecture
+- [ ] Refactor to use MySQL
 - [ ] Make detail pages 2 lanes wide, and reserve the third for annotations (would require building out an annotation functionality, refactoring the db schema)
 - [ ] Does an album page have a "release date" for albums (versus sporadic release dates listed in credits on each track)?
   - would have to refactor db
