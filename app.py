@@ -4,7 +4,8 @@ import sqlite3
 import requests
 from bs4 import BeautifulSoup
 import re
-import controllers
+from controllers.data import get_db_connection, truncate_tables
+from controllers.scraping import getAlbum, getArtwork
 
 app = Flask(__name__)
 
@@ -24,7 +25,7 @@ def index():
         if getAlbum(albumLink) == 404:
             return redirect(url_for('index'))
 
-        conn = scraping.get_db_connection()
+        conn = get_db_connection()
         album_id = conn.execute(f'SELECT id FROM Albums WHERE link="{albumLink}";').fetchone()[0]
         # After adding to db to go to getData page
         return redirect(url_for('getData', album_id=album_id))    
@@ -37,9 +38,9 @@ def about():
 
 @app.route('/getData?<album_id>', methods=['GET'])
 def getData(album_id):
-    conn = scraping.get_db_connection()
+    conn = get_db_connection()
     album = conn.execute(f'SELECT * FROM Albums WHERE id={album_id};').fetchone()
-    artwork = scraping.getArtwork(album['link'])
+    artwork = getArtwork(album['link'])
     tracks = conn.execute(f'SELECT * FROM Tracks WHERE album_id={album_id};').fetchall()
 
     if album['link'].find('album') != -1:

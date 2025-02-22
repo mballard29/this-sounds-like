@@ -1,24 +1,7 @@
-from flask import Flask, render_template, request, url_for, redirect, flash
-from werkzeug.exceptions import abort
-import sqlite3
 import requests
+import sqlite3
 from bs4 import BeautifulSoup
-import re
-
-def get_db_connection():
-    conn = sqlite3.connect('database.db')
-    conn.row_factory = sqlite3.Row
-    return conn
-
-def truncate_tables():
-    conn = get_db_connection()
-    conn.execute('DELETE FROM Albums;')
-    conn.commit()
-    conn.execute('DELETE FROM Tracks;')
-    conn.commit()
-    conn.execute('DELETE FROM Credits;')
-    conn.commit()
-    conn.close()
+from controllers.data import get_db_connection
 
 def getAlbum(link):
     if link.find('https://genius.com/albums/') == -1:
