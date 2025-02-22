@@ -50,7 +50,7 @@ Enter a Genius.com page's url for an album or song to search for who created and
 - [ ] Host on a publicly available site OR
 - [ ] Create desktop application version (ref. https://medium.com/@fareedkhandev/create-desktop-application-using-flask-framework-ee4386a583e9)
 - [ ] Create links at the bottom of each track card to visit the actual Genius page, or scrape lyrical content for easy access
-- [ ] Color elements of screen based on colors of album
+- [ ] Color elements of screen based on colors of album (ref. https://www.timpoulsen.com/2018/finding-the-dominant-colors-of-an-image.html)
 - [ ] Navbar background color on getData page(s)
 - [ ] Create flush db button for first page (index)
 - [x] Refactor using MVC architecture
