@@ -67,25 +67,25 @@
     }
     [data-bs-theme=dark] {
       color-scheme: dark;
-      --bs-body-bg: rgba(88, 64, 60, 0.7);
+      --bs-body-bg: rgba(117, 124, 132, 0.7);
     }
 
     /* COLOR PICKER */
     .btn-bd-primary {
-      --bd-violet-bg: rgba(5, 3, 3, 1);
+      --bd-violet-bg: rgba(117, 124, 132, 1);
       --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
       --bs-btn-font-weight: 600;
       --bs-btn-color: var(--bs-white);
       --bs-btn-bg: var(--bd-violet-bg);
       --bs-btn-border-color: var(--bd-violet-bg);
       --bs-btn-hover-color: var(--bs-white);
-      --bs-btn-hover-bg: rgba(5, 3, 3, 1);
-      --bs-btn-hover-border-color: rgba(5, 3, 3, 0.7);
+      --bs-btn-hover-bg: rgba(117, 124, 132, 1);
+      --bs-btn-hover-border-color: rgba(117, 124, 132, 0.7);
       --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
       --bs-btn-active-color: var(--bs-btn-hover-color);
-      --bs-btn-active-bg: rgba(5, 3, 3, 1);
-      --bs-btn-active-border-color: rgba(5, 3, 3, 0.7);
-      --bs-btn-focus-shadow-rgb: rgba(5, 3, 3, 0.7)
+      --bs-btn-active-bg: rgba(117, 124, 132, 1);
+      --bs-btn-active-border-color: rgba(117, 124, 132, 0.7);
+      --bs-btn-focus-shadow-rgb: rgba(117, 124, 132, 0.7)
     }
     .bd-mode-toggle {
       z-index: 1500;
@@ -98,10 +98,10 @@
     }
     .dropdown-item.active,
     .dropdown-item:active {
-        background-color: rgba(5, 3, 3, 0.7);
+        background-color: rgba(117, 124, 132, 0.7);
     }
-    /* For: https://t2.genius.com/unsafe/300x300/https%3A%2F%2Fimages.genius.com%2F5cbb880f8dbcfac9a31bf74313899cb8.1000x1000x1.png */
+    /* For: None */
     .navbar {
-      background-color: rgba(5, 3, 3, 0.7);
+      background-color: rgba(117, 124, 132, 0.7);
     }
     

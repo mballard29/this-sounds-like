@@ -93,9 +93,10 @@ def generateStyles(link):
     
 def genStyles(link):
     if link == None:
-        colors = [(255, 255, 255, 0.5), (255, 255, 255, 0.5), (255, 255, 255, 0.5)]
+    #  rgb(117, 124, 132)
+      colors = [(117, 124, 132), (117, 124, 132), (117, 124, 132)]
     else:
-        colors = generateStyles(link)
+      colors = generateStyles(link)
 
     primary = f'rgba({colors[0][0]}, {colors[0][1]}, {colors[0][2]}, 0.7)'
     solid_primary = f'rgba({colors[0][0]}, {colors[0][1]}, {colors[0][2]}, 1)'
