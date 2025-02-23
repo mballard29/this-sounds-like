@@ -104,6 +104,11 @@ def genStyles(link):
     # tertiary = primary = f'rgba({colors[2][0]}, {colors[2][1]}, {colors[2][2]}, 0.7)'
     content = f"""
     /* HEADER */
+    :root {{
+      --primary: {primary};
+      --solid_primary: {solid_primary};
+      --secondary: {secondary}
+    }}
     .nav-masthead .nav-link {{
       color: rgba(255, 255, 255, 0.9);
       /* border-bottom: .25rem solid transparent; */
@@ -171,25 +176,29 @@ def genStyles(link):
     }}
     [data-bs-theme=dark] {{
       color-scheme: dark;
-      --bs-body-bg: {secondary};
+      --bs-body-bg: var(--secondary);
+    }}
+    a {{
+      color: var(--bs-heading-color);
+      text-decoration: none
     }}
 
     /* COLOR PICKER */
     .btn-bd-primary {{
-      --bd-violet-bg: {solid_primary};
+      --bd-violet-bg: var(--solid_primary);
       --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
       --bs-btn-font-weight: 600;
       --bs-btn-color: var(--bs-white);
       --bs-btn-bg: var(--bd-violet-bg);
       --bs-btn-border-color: var(--bd-violet-bg);
       --bs-btn-hover-color: var(--bs-white);
-      --bs-btn-hover-bg: {solid_primary};
-      --bs-btn-hover-border-color: {primary};
+      --bs-btn-hover-bg: var(--solid_primary);
+      --bs-btn-hover-border-color: var(--primary);
       --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
       --bs-btn-active-color: var(--bs-btn-hover-color);
-      --bs-btn-active-bg: {solid_primary};
-      --bs-btn-active-border-color: {primary};
-      --bs-btn-focus-shadow-rgb: {primary}
+      --bs-btn-active-bg: var(--solid_primary);
+      --bs-btn-active-border-color: var(--primary);
+      --bs-btn-focus-shadow-rgb: var(--primary)
     }}
     .bd-mode-toggle {{
       z-index: 1500;
@@ -198,7 +207,8 @@ def genStyles(link):
       play: block !important;
     }}
     img {{
-      border-radius: 1%;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
     }}
     .dropdown-item.active,
     .dropdown-item:active {{
@@ -254,7 +264,7 @@ def getData(album_id):
     for i, track in enumerate(tracks):
       roll = conn.execute(f"SELECT field, names FROM Credits WHERE track_id={track['id']};").fetchall()
       # 1, Ride, [(field, names), (field, names)...]
-      t = [i+1, track['title'], roll]
+      t = [i+1, track['title'], roll, track['link']]
       tracklist.append(t)
 
     conn.close()
@@ -262,7 +272,7 @@ def getData(album_id):
     return render_template('getData.html', album=album, artwork=artwork, tracklist=tracklist)
 
   # get song page
-  album = {'title':album['title'][7:], 'artist':album['artist']}
+  album = {'title':album['title'][7:], 'artist':album['artist'], 'link':album['link']}
   credit = []
   roll = conn.execute(f"SELECT field, names FROM Credits WHERE track_id={tracks[0]['id']};").fetchall()
 

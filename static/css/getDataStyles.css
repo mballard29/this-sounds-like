@@ -1,5 +1,10 @@
 
     /* HEADER */
+    :root {
+      --primary: rgba(101, 129, 131, 0.7);
+      --solid_primary: rgba(101, 129, 131, 1);
+      --secondary: rgba(31, 37, 33, 0.7)
+    }
     .nav-masthead .nav-link {
       color: rgba(255, 255, 255, 0.9);
       /* border-bottom: .25rem solid transparent; */
@@ -67,25 +72,29 @@
     }
     [data-bs-theme=dark] {
       color-scheme: dark;
-      --bs-body-bg: rgba(117, 124, 132, 0.7);
+      --bs-body-bg: var(--secondary);
+    }
+    a {
+      color: var(--bs-heading-color);
+      text-decoration: none
     }
 
     /* COLOR PICKER */
     .btn-bd-primary {
-      --bd-violet-bg: rgba(117, 124, 132, 1);
+      --bd-violet-bg: var(--solid_primary);
       --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
       --bs-btn-font-weight: 600;
       --bs-btn-color: var(--bs-white);
       --bs-btn-bg: var(--bd-violet-bg);
       --bs-btn-border-color: var(--bd-violet-bg);
       --bs-btn-hover-color: var(--bs-white);
-      --bs-btn-hover-bg: rgba(117, 124, 132, 1);
-      --bs-btn-hover-border-color: rgba(117, 124, 132, 0.7);
+      --bs-btn-hover-bg: var(--solid_primary);
+      --bs-btn-hover-border-color: var(--primary);
       --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
       --bs-btn-active-color: var(--bs-btn-hover-color);
-      --bs-btn-active-bg: rgba(117, 124, 132, 1);
-      --bs-btn-active-border-color: rgba(117, 124, 132, 0.7);
-      --bs-btn-focus-shadow-rgb: rgba(117, 124, 132, 0.7)
+      --bs-btn-active-bg: var(--solid_primary);
+      --bs-btn-active-border-color: var(--primary);
+      --bs-btn-focus-shadow-rgb: var(--primary)
     }
     .bd-mode-toggle {
       z-index: 1500;
@@ -94,14 +103,15 @@
       play: block !important;
     }
     img {
-      border-radius: 1%;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
     }
     .dropdown-item.active,
     .dropdown-item:active {
-        background-color: rgba(117, 124, 132, 0.7);
+        background-color: rgba(101, 129, 131, 0.7);
     }
-    /* For: None */
+    /* For: https://t2.genius.com/unsafe/300x300/https%3A%2F%2Fimages.genius.com%2F2de25935e9415c3d9f9801fc9cd9affc.1000x1000x1.png */
     .navbar {
-      background-color: rgba(117, 124, 132, 0.7);
+      background-color: rgba(101, 129, 131, 0.7);
     }
     

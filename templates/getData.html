@@ -126,7 +126,7 @@
     <main class="container py-5">
       <div class="row" data-masonry='{"percentPosition": true }'>
         <!-- album cover with title and artist -->
-        {% if artwork_link ==  None %}
+        {% if artwork ==  None %}
           <div class="col-sm-6 col-lg-4 mb-4">
             <div class="card">
               <svg
@@ -153,12 +153,14 @@
         {% else %}
           <div class="col-sm-6 col-lg-4 mb-4">
             <div class="card">
-              <img src={{artwork}} alt="Album artwork" class="img-fluid" width="100%" height="400">
+              <img src={{artwork}} alt="Album artwork" class="img-fluid" width="414" height="414">
               <div class="card-body">
-                <h5 class="card-title">{{album['title']}}</h5>
-                <p class="card-text">
-                  by {{album['artist']}}
-                </p>
+                <a href="{{album['link']}}" target="_blank">
+                  <h5 class="card-title" style="font-weight: 700;">{{album['title']}}</h5>
+                  <p class="card-text">
+                    by {{album['artist']}}
+                  </p>
+              </a>
               </div>
             </div>
           </div>
@@ -167,8 +169,12 @@
         {% for track in tracklist %}
           <div class="col-sm-6 col-lg-4 mb-4">
             <div class="card">
+              <div class="card-body" style="background-color: var(--primary);">
+                <a href="{{track[3]}}" target="_blank">
+                  <h5 class="card-title">{{track[0]}} {{track[1]}}</h5>
+                </a>
+              </div>
               <div class="card-body">
-                <h5 class="card-title">{{track[0]}} {{track[1]}}</h5>
                 {% for c in track[2] %}
                 <p class="card-text">
                   {{c[0]}}
