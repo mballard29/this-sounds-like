@@ -11,11 +11,11 @@ Create and activate a python virtual environment, download dependent packages, s
 Enter a Genius.com page's url for an album or song to search for who created and contributed to your favorite tracks, get clues to what tracks your favorite songs sampled, and get a sense of what makes a songwriter's or producer's style unique.
 
 
-![Album page example](demo-pictures/credit-page.png)
+![When Album Page is in Dark Mode, Colors adapt to album cover](demo-pictures/mmatbs.png)
 
 <br>
 
-![Song view example](demo-pictures/song-view.png)
+![Song view example](demo-pictures/nuevayol.png)
 
 
 
@@ -50,11 +50,11 @@ Enter a Genius.com page's url for an album or song to search for who created and
 - [ ] Host on a publicly available site OR
 - [ ] Create desktop application version (ref. https://medium.com/@fareedkhandev/create-desktop-application-using-flask-framework-ee4386a583e9)
 - [ ] Create links at the bottom of each track card to visit the actual Genius page, or scrape lyrical content for easy access
-- [ ] Color elements of screen based on colors of album (ref. https://www.timpoulsen.com/2018/finding-the-dominant-colors-of-an-image.html)
-- [ ] Navbar background color on getData page(s)
+- [x] Color elements of screen based on colors of album (ref. https://www.timpoulsen.com/2018/finding-the-dominant-colors-of-an-image.html)
+- [x] Navbar background color on getData page(s)
 - [ ] Create flush db button for first page (index)
 - [x] Refactor using MVC architecture
-  - [ ] Since flask doesn't really work this way, could at least separate out functionality into other files/controllers
+  - [x] Since flask doesn't really work this way, could at least separate out functionality into other files/controllers (flask likes certain files in certain places, so... segmentation and modular design is not as easy as i'd like)
 - [ ] Refactor to use MySQL
 - [ ] Dynamic web scraping (ref. https://www.zenrows.com/blog/dynamic-web-pages-scraping-python#dynamic-webscraping-using-beautifulsoup)
 - [ ] Make detail pages 2 lanes wide, and reserve the third for annotations (would require building out an annotation functionality, refactoring the db schema)
