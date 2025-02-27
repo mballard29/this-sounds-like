@@ -93,7 +93,6 @@ def generateStyles(link):
     
 def genStyles(link):
     if link == None:
-    #  rgb(117, 124, 132)
       colors = [(117, 124, 132), (117, 124, 132), (117, 124, 132)]
     else:
       colors = generateStyles(link)
@@ -268,7 +267,7 @@ def getData(album_id):
       tracklist.append(t)
 
     conn.close()
-    genStyles(artwork)
+    genStyles(artwork[0])
     return render_template('getData.html', album=album, artwork=artwork, tracklist=tracklist)
 
   # get song page
@@ -284,5 +283,8 @@ def getData(album_id):
       names = [r['names']]
     credit.append((r['field'], names))
 
-  genStyles(artwork)
+  if artwork == None:
+    genStyles(artwork)
+  else:
+    genStyles(artwork[0])
   return render_template('getSongData.html', album=album, artwork=artwork, credit=credit)

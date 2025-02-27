@@ -2,6 +2,9 @@ import requests
 import sqlite3
 from bs4 import BeautifulSoup
 from controllers.data import get_db_connection
+from selenium import webdriver
+from selenium.webdriver.common.by import By 
+from selenium.webdriver.firefox.options import Options
 
 def getAlbum(link):
     if link.find('https://genius.com/albums/') == -1:
@@ -99,15 +102,24 @@ def getSong(link):
     return 200
 
 def getArtwork(link):
-    req = requests.get(link)
-    soup = BeautifulSoup(req.content, 'html.parser')
-    
-    art = soup.find('img', class_='SizedImage-sc-39a204ed-2')
-    if art != None:
-      return art['src']
+  options = Options()
+  options.add_argument('-headless')
+  # geckodriver_path = '/Users/masonballard/Desktop/Github-Projects/this-sounds-like/controllers'
+  driver = webdriver.Firefox(options=options)
 
-    art = soup.find('img', class_='cover_art-image')
-    if art != None:
-      return art['src']
+  driver.get(link)
 
-    return None
+  artwork = []
+  if link.find('genius.com/albums/') != -1:
+    images = driver.find_elements(By.CLASS_NAME, 'cover_art-image')
+    for i in images:
+      artwork.append(i.get_attribute('src'))
+      # print(i.get_attribute('src'))
+  else:
+    image = driver.find_element(By.CLASS_NAME, 'SizedImage-sc-39a204ed-1')
+    artwork.append(image.get_attribute('src'))
+    # print(image.get_attribute('src'))
+
+  driver.quit()
+  
+  return artwork

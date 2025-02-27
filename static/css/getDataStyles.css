@@ -1,9 +1,9 @@
 
     /* HEADER */
     :root {
-      --primary: rgba(101, 129, 131, 0.7);
-      --solid_primary: rgba(101, 129, 131, 1);
-      --secondary: rgba(31, 37, 33, 0.7)
+      --primary: rgba(34, 43, 76, 0.7);
+      --solid_primary: rgba(34, 43, 76, 1);
+      --secondary: rgba(182, 193, 226, 0.7)
     }
     .nav-masthead .nav-link {
       color: rgba(255, 255, 255, 0.9);
@@ -108,10 +108,10 @@
     }
     .dropdown-item.active,
     .dropdown-item:active {
-        background-color: rgba(101, 129, 131, 0.7);
+        background-color: rgba(34, 43, 76, 0.7);
     }
-    /* For: https://t2.genius.com/unsafe/300x300/https%3A%2F%2Fimages.genius.com%2F2de25935e9415c3d9f9801fc9cd9affc.1000x1000x1.png */
+    /* For: https://t2.genius.com/unsafe/300x300/https%3A%2F%2Fimages.genius.com%2F7ea45e7feb53d9f216b70e801254e580.1000x1000x1.png */
     .navbar {
-      background-color: rgba(101, 129, 131, 0.7);
+      background-color: rgba(34, 43, 76, 0.7);
     }
     
