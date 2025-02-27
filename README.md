@@ -57,7 +57,7 @@ Enter a Genius.com page's url for an album or song to search for who created and
 - [x] Refactor using MVC architecture
   - [x] Since flask doesn't really work this way, could at least separate out functionality into other files/controllers (flask likes certain files in certain places, so... segmentation and modular design is not as easy as i'd like)
 - [ ] Refactor to use MySQL
-- [ ] Dynamic web scraping (ref. https://www.zenrows.com/blog/dynamic-web-pages-scraping-python#dynamic-webscraping-using-beautifulsoup)
+- [x] Dynamic web scraping (ref. https://www.zenrows.com/blog/dynamic-web-pages-scraping-python#dynamic-webscraping-using-beautifulsoup)
 - [ ] Make detail pages 2 lanes wide, and reserve the third for annotations (would require building out an annotation functionality, refactoring the db schema)
 - [ ] Does an album page have a "release date" for albums (versus sporadic release dates listed in credits on each track)?
   - would have to refactor db
