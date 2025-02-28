@@ -205,9 +205,15 @@ def genStyles(link):
     .bd-mode-toggle .dropdown-menu .active .bi {{
       play: block !important;
     }}
-    img {{
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
+    img.img-fluid {{
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }}
+    img.img-fluid2 {{
+      border-radius: 5px;
+    }}
+    div.card {{
+      border-radius:5px;
     }}
     .dropdown-item.active,
     .dropdown-item:active {{
