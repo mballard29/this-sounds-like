@@ -62,4 +62,5 @@ Enter a Genius.com page's url for an album or song to search for who created and
   - [ ] left lane for album cover(s), middle lane for data, lane 3 for annotations
 - [ ] Does an album page have a "release date" for albums (versus sporadic release dates listed in credits on each track)?
   - would have to refactor db
+- [ ] isolate functionality from views and models
 
