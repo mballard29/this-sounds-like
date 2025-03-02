@@ -151,7 +151,7 @@
             </div>
           </div>
         {% else %}
-          <div class="col-sm-6 col-lg-4 mb-4">
+        <div class="col-sm-6 col-lg-4 mb-4">
             <div class="card">
               <img src={{artwork[0]}} alt="Album artwork" class="img-fluid" width="414" height="414">
               <div class="card-body">
@@ -164,6 +164,13 @@
               </div>
             </div>
           </div>
+          {% for a in artwork[1:] %}
+            <div class="col-sm-6 col-lg-4 mb-4">
+              <div class="card">
+                <img src={{a}} alt="Album artwork" class="img-fluid2" width="414" height="414">
+              </div>
+            </div>
+          {% endfor %}
         {% endif %}
         <!-- (field, [name, name, ...]), (field, [name, name, ...]) -->
         {% for c in credit %}

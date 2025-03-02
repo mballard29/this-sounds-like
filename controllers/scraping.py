@@ -115,7 +115,8 @@ def getAlbumArtLinks(link):
   covers = obj['album']['cover_arts']
   cover_links = []
   for c in covers:
-    cover_links.append(c['image_url'])
+    if c['image_url'] not in cover_links:
+      cover_links.append(c['image_url'])
   
   return cover_links
 
@@ -134,10 +135,10 @@ def getSongArtLink(link):
   cover_links = []
   for song in preloaded_state['entities']['songs']:
     if 'songArtImageUrl' in preloaded_state['entities']['songs'][song].keys():
-      cover_links.append(preloaded_state['entities']['songs'][song]['songArtImageUrl'])
-      return cover_links
-    
-  return None
+      if preloaded_state['entities']['songs'][song]['songArtImageUrl'] not in cover_links:
+        cover_links.append(preloaded_state['entities']['songs'][song]['songArtImageUrl'])
+  
+  return cover_links
 
 def getArtwork(link):
   '''
