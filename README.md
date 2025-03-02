@@ -59,6 +59,7 @@ Enter a Genius.com page's url for an album or song to search for who created and
 - [ ] Refactor to use MySQL
 - [x] Dynamic web scraping (ref. https://www.zenrows.com/blog/dynamic-web-pages-scraping-python#dynamic-webscraping-using-beautifulsoup)
 - [ ] Make detail pages 2 lanes wide, and reserve the third for annotations (would require building out an annotation functionality, refactoring the db schema)
+  - [ ] left lane for album cover(s), middle lane for data, lane 3 for annotations
 - [ ] Does an album page have a "release date" for albums (versus sporadic release dates listed in credits on each track)?
   - would have to refactor db
 

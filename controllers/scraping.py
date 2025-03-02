@@ -2,9 +2,10 @@ import requests
 import sqlite3
 from bs4 import BeautifulSoup
 from controllers.data import get_db_connection
-from selenium import webdriver
-from selenium.webdriver.common.by import By 
-from selenium.webdriver.firefox.options import Options
+import json
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By 
+# from selenium.webdriver.firefox.options import Options
 
 def getAlbum(link):
     if link.find('https://genius.com/albums/') == -1:
@@ -69,7 +70,7 @@ def getSong(link):
     roll = None
     try:
         # track title, link, album_id
-        title = soup.find('h1', class_='SongHeader-desktop-sc-d2837d6d-8').get_text()
+        title = soup.find('h1', class_='SongHeader-desktop-sc-9c2f20c9-8').get_text()
         artist = soup.find('div', class_='HeaderArtistAndTracklist-desktop-sc-afd25865-1').get_text()
         roll = soup.find_all('div', class_='SongInfo-sc-4162678b-3')
         call = []
@@ -101,7 +102,46 @@ def getSong(link):
     conn.close()
     return 200
 
+def getAlbumArtLinks(link):
+  req = requests.get(link)
+  soup = BeautifulSoup(req.content, 'html.parser')
+  
+  meta = soup.find_all('meta')
+  for m in meta:
+    if m['content'].find("quot") != -1:
+      meta = m['content']
+  
+  obj = json.loads(meta)
+  covers = obj['album']['cover_arts']
+  cover_links = []
+  for c in covers:
+    cover_links.append(c['image_url'])
+  
+  return cover_links
+
+def getSongArtLink(link):
+  req = requests.get(link)
+  soup = BeautifulSoup(req.content, 'html.parser')
+
+  script = soup.find_all('script')
+  for s in script:
+    if s.get_text().find('window.__PRELOADED_STATE__') != -1:
+      script = s.get_text()
+        
+  preloaded_state = script.split(');\n    ')[0]
+  kw = r"\\n      window.__PRELOADED_STATE__ = JSON.parse(\\"
+  preloaded_state=json.loads(preloaded_state[len(kw)-3:-1].replace(r'\"',r'"' ).replace(r'\\"', r'\"').replace(r"\'", r"'").replace(r'\$', r'$'))
+  cover_links = []
+  for song in preloaded_state['entities']['songs']:
+    if 'songArtImageUrl' in preloaded_state['entities']['songs'][song].keys():
+      cover_links.append(preloaded_state['entities']['songs'][song]['songArtImageUrl'])
+      return cover_links
+    
+  return None
+
 def getArtwork(link):
+  '''
+  USING SELENIUM
   options = Options()
   options.add_argument('-headless')
   # geckodriver_path = '/Users/masonballard/Desktop/Github-Projects/this-sounds-like/controllers'
@@ -123,3 +163,7 @@ def getArtwork(link):
   driver.quit()
   
   return artwork
+  '''
+  if link.find('albums/') != -1:
+    return getAlbumArtLinks(link)
+  return getSongArtLink(link)
