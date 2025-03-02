@@ -17,7 +17,7 @@ Enter a Genius.com page's url for an album or song to search for who created and
 View alternate album covers for alongside the credits for each track. Click on the album title or individual track titles to go to the source page on Genius to dig deeper. In dark mode, see how the page adapts to the colors of the primary album artwork.
 
 
-![Song view example](demo-pictures/songs.png)
+![Song view example](demo-pictures/theweekend.png)
 
 
 Look at singles or individual songs to focus on individual production categories.

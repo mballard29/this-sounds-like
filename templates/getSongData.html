@@ -170,16 +170,18 @@
             <!-- taller left aligned text box with time elapsed time stamp -->
             <div class="col-sm-6 col-lg-4 mb-4">
             <div class="card">
+                <div class="card-body" style="background-color: var(--primary); border-top-left-radius: 5px; border-top-right-radius: 5px;">
+                    <h5 class="card-title text-center">{{c[0]}}</h5>
+                </div>
                 <div class="card-body">
-                <h5 class="card-title text-center">{{c[0]}}</h5>
-                {% for name in c[1] %}
-                <p class="card-text">
-                    <!-- {{name[0]}} -->
-                    <small class="text-body-secondary">
-                    {{ name }}
-                    </small>
-                </p>
-                {% endfor %}
+                    {% for name in c[1] %}
+                    <p class="card-text">
+                        <!-- {{name[0]}} -->
+                        <small class="text-body-secondary">
+                        {{ name }}
+                        </small>
+                    </p>
+                    {% endfor %}
                 </div>
             </div>
             </div>  
