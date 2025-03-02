@@ -5,17 +5,22 @@
 Create and activate a python virtual environment, download dependent packages, set (export) FLASK_APP to `app.py` and FLASK_ENV to `development`, run `flask --app app.py --debug run`, and open `localhost:5000`
 
 
-![Landing page](demo-pictures/homescreen.png)
+![Landing page](demo-pictures/home.png)
 
 
 Enter a Genius.com page's url for an album or song to search for who created and contributed to your favorite tracks, get clues to what tracks your favorite songs sampled, and get a sense of what makes a songwriter's or producer's style unique.
 
 
-![When Album Page is in Dark Mode, Colors adapt to album cover](demo-pictures/mmatbs.png)
+![When Album Page is in Dark Mode, Colors adapt to album cover](demo-pictures/albums.png)
 
-<br>
 
-![Song view example](demo-pictures/nuevayol.png)
+View alternate album covers for alongside the credits for each track. Click on the album title or individual track titles to go to the source page on Genius to dig deeper. In dark mode, see how the page adapts to the colors of the primary album artwork.
+
+
+![Song view example](demo-pictures/songs.png)
+
+
+Look at singles or individual songs to focus on individual production categories.
 
 
 

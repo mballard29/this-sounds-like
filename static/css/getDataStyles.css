@@ -1,9 +1,9 @@
 
     /* HEADER */
     :root {
-      --primary: rgba(155, 129, 112, 0.7);
-      --solid_primary: rgba(155, 129, 112, 1);
-      --secondary: rgba(22, 35, 66, 0.7)
+      --primary: rgba(38, 50, 39, 0.7);
+      --solid_primary: rgba(38, 50, 39, 1);
+      --secondary: rgba(117, 125, 95, 0.7)
     }
     .nav-masthead .nav-link {
       color: rgba(255, 255, 255, 0.9);
@@ -114,10 +114,10 @@
     }
     .dropdown-item.active,
     .dropdown-item:active {
-        background-color: rgba(155, 129, 112, 0.7);
+        background-color: rgba(38, 50, 39, 0.7);
     }
-    /* For: https://images.genius.com/981de6518d55142c24c27c898dbc6ef7.512x512x1.jpg */
+    /* For: https://images.genius.com/c4f225ffe9ed2762145f257dba814978.1000x1000x1.png */
     .navbar {
-      background-color: rgba(155, 129, 112, 0.7);
+      background-color: rgba(38, 50, 39, 0.7);
     }
     
