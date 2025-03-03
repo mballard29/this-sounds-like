@@ -47,7 +47,7 @@ Look at singles or individual songs to focus on individual production categories
 <p class="lead">
     On the home page, enter the link to an album page or song lyrics page from 
     <a href="https://genius.com/" class="link-light">Genius.com</a>. 
-    This will take the form of <code>'https://genius.com/albums/&ltartist name>/&ltalbum name>'</code>. 
+    This will take the form of <code>'https://genius.com/albums/&ltartist name>/&ltalbum name>'</code> or <code>'https://genius.com/&ltartist name>-&ltsong name>-lyrics'</code>. 
 </p>
 <h4>Future improvements</h4>
 
