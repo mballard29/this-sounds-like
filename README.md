@@ -2,10 +2,16 @@
 ### a web application powered by Python, Flask, and BeautifulSoup
 
 
-Create and activate a python virtual environment, download dependent packages, set (export) FLASK_APP to `app.py` and FLASK_ENV to `development`, run `flask --app app.py --debug run`, and open `localhost:5000`
+Create and activate a python virtual environment, download dependent packages, set flask environment variables, and run. View in `localhost:5000`. See example commands for Mac below.
+```bash
+source env/bin/activate
+export FLASK_APP=app
+export FLASK_ENV=development
+flask --app app.py --debug run
+```
 
 
-![Landing page](demo-pictures/home.png)
+![Landing page](demo-pictures/geniusbutton.png)
 
 
 Enter a Genius.com page's url for an album or song to search for who created and contributed to your favorite tracks, get clues to what tracks your favorite songs sampled, and get a sense of what makes a songwriter's or producer's style unique.
