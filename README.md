@@ -62,6 +62,7 @@ Look at singles or individual songs to focus on individual production categories
   - data not available in page source, is dynamically loaded (not easily scraped)
 - [ ] Host on a publicly available site OR
 - [ ] Create desktop application version (ref. https://medium.com/@fareedkhandev/create-desktop-application-using-flask-framework-ee4386a583e9)
+  - [ ] add Github (CI/CD like) workflow to deploy and test upon commits
 - [x] ~~Create links at the bottom of each track card to visit the actual Genius page, or scrape lyrical content for easy access~~ Added links on album and song pages to reference page - can click on song titles or album title to go to relevant page on Genius
 - [ ] Add "go to genius" button on home page (to go to site to get url and come back) (maybe to navbar)
 - [x] Color elements of screen based on colors of album (ref. https://www.timpoulsen.com/2018/finding-the-dominant-colors-of-an-image.html)
@@ -76,4 +77,8 @@ Look at singles or individual songs to focus on individual production categories
 - [ ] Does an album page have a "release date" for albums (versus sporadic release dates listed in credits on each track)?
   - would have to refactor db
 - [ ] isolate functionality from views and models
+- [ ] in app browser instance with hovering button to collect that page's data
+- [ ] make home search bar, actually like kw search, send text to search bar in genius
+  - `https://genius.com/search?q=&lt search terms >`
+  - special characters reference: https://www.freecodecamp.org/news/url-encoded-characters-reference/
 
