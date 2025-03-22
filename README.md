@@ -51,6 +51,7 @@ Look at singles or individual songs to focus on individual production categories
     - <code>'https://genius.com/albums/&ltartist name>/&ltalbum name>'</code> like https://genius.com/albums/Oklou/Choke-enough <br>
     - <code>'https://genius.com/&ltartist name>-&ltsong name>-lyrics'</code> like https://genius.com/Sza-the-weekend-lyrics
 </p>
+
 <h4>Future improvements</h4>
 
 - [x] Extend functionality to work for singles/specific songs (that don't have album links available)
@@ -82,3 +83,5 @@ Look at singles or individual songs to focus on individual production categories
   - `https://genius.com/search?q=&lt search terms >`
   - special characters reference: https://www.freecodecamp.org/news/url-encoded-characters-reference/
 
+Issues:
+- Genius changes the class names of attributes on the page fairly often

@@ -7,6 +7,11 @@ import json
 # from selenium.webdriver.common.by import By 
 # from selenium.webdriver.firefox.options import Options
 
+title_h1_class = 'SongHeader-desktop__Title-sc-9c2f20c9-8'
+artist_div_class = 'HeaderArtistAndTracklist-desktop__ListArtists-sc-afd25865-1'
+credit_div_class = 'SongInfo__Credit-sc-4162678b-3'
+
+
 def getAlbum(link):
     if link.find('https://genius.com/albums/') == -1:
       return getSong(link)
@@ -45,7 +50,7 @@ def getAlbum(link):
         
         req = requests.get(track_link)
         soup = BeautifulSoup(req.content, 'html.parser')
-        roll = soup.find_all('div', class_='SongInfo-sc-4162678b-3')
+        roll = soup.find_all('div', class_=credit_div_class)
         for r in roll:
             line = r.get_text(separator='\n')
             field = line.split('\n')[0]
@@ -70,9 +75,12 @@ def getSong(link):
     roll = None
     try:
         # track title, link, album_id
-        title = soup.find('h1', class_='SongHeader-desktop-sc-9c2f20c9-8').get_text()
-        artist = soup.find('div', class_='HeaderArtistAndTracklist-desktop-sc-afd25865-1').get_text()
-        roll = soup.find_all('div', class_='SongInfo-sc-4162678b-3')
+        # SongHeader-desktop__Title-sc-9c2f20c9-8 lmRiVQ
+        title = soup.find('h1', class_ = title_h1_class).get_text()
+        # HeaderArtistAndTracklist-desktop__ListArtists-sc-afd25865-1 brsnYs
+        artist = soup.find('div', class_ = artist_div_class).get_text()
+        # SongInfo__Credit-sc-4162678b-3 iFkpsR
+        roll = soup.find_all('div', class_ = credit_div_class)
         call = []
         for r in roll:
           line = r.get_text(separator='\n')
