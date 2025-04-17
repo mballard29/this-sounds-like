@@ -62,7 +62,7 @@ Look at singles or individual songs to focus on individual production categories
 - [x] Utilize Genius's list of alternate album covers to also display on track detail pages
   - data not available in page source, is dynamically loaded (not easily scraped)
 - [ ] Host on a publicly available site OR
-- [ ] Create desktop application version (ref. https://medium.com/@fareedkhandev/create-desktop-application-using-flask-framework-ee4386a583e9)
+- [ ] Create desktop application version (ref. https://medium.com/@fareedkhandev/create-desktop-application-using-flask-framework-ee4386a583e9, rf. below)
   - [ ] add Github (CI/CD like) workflow to deploy and test upon commits
 - [x] ~~Create links at the bottom of each track card to visit the actual Genius page, or scrape lyrical content for easy access~~ Added links on album and song pages to reference page - can click on song titles or album title to go to relevant page on Genius
 - [ ] Add "go to genius" button on home page (to go to site to get url and come back) (maybe to navbar)
@@ -85,3 +85,34 @@ Look at singles or individual songs to focus on individual production categories
 
 Issues:
 - Genius changes the class names of attributes on the page fairly often
+
+
+You can turn your **Python Flask application** into an **executable (.exe)** using **PyInstaller**. Here's how:
+
+### **Steps to Convert a Flask App to an Executable**
+1. **Install PyInstaller** (if you haven't already)
+   ```bash
+   pip install pyinstaller
+   ```
+2. **Navigate to Your Flask App Directory**
+   ```bash
+   cd /path/to/your/flask_app
+   ```
+
+3. **Run PyInstaller to Create Executable**
+   ```bash
+   pyinstaller --onefile --windowed --name app_name app.py
+   ```
+   - `--onefile`: Packages everything into a single `.exe`.
+   - `--windowed`: Prevents opening a terminal window (useful for GUI apps).
+   - `--name app_name`: Sets the executable name to **app_name.exe**.
+
+4. **Find the Executable**
+   - The `.exe` will be located in the **`dist/`** folder after PyInstaller completes.
+
+### **Handling Dependencies**
+If your Flask app relies on external dependencies, you may need to:
+- Include extra files with `--add-data`.
+- Use a **virtual environment** (`venv`) before packaging.
+
+Would you like help fine-tuning this for specific Flask features or including additional dependencies? 🚀
