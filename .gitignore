@@ -12,3 +12,6 @@ templates/scratch.html
 .DS_Store
 controllers/__pycache__
 static/css/getDataStyles.css
+.vscode/launch.json
+static/css/getDataStyles.css
+static/css/getDataStyles.css
