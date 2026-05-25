@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, flash
+from flask import Flask, render_template, request, url_for, redirect, flash # type: ignore
 from werkzeug.exceptions import abort
 import sqlite3
 import requests
@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import re
 from controllers.data import get_db_connection, truncate_tables
 from controllers.scraping import getAlbum, getArtwork
-import cv2
+import cv2 # type: ignore
 import numpy as np
 from sklearn.cluster import KMeans
 import urllib.request

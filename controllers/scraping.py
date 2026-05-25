@@ -3,13 +3,11 @@ import sqlite3
 from bs4 import BeautifulSoup
 from controllers.data import get_db_connection
 import json
-# from selenium import webdriver
-# from selenium.webdriver.common.by import By 
-# from selenium.webdriver.firefox.options import Options
 
-title_h1_class = 'SongHeader-desktop__Title-sc-9c2f20c9-8'
-artist_div_class = 'HeaderArtistAndTracklist-desktop__ListArtists-sc-afd25865-1'
-credit_div_class = 'SongInfo__Credit-sc-4162678b-3'
+ALBUM_INFO_DIV_CLASS = "header_with_cover_art-primary_info"
+ALBUM_TRACK_LINEITEM = "chart_row-content"
+TRACK_INFO_DIV_CLASS = 'SongHeader-desktop__SongDetails-sc-94bfcc83-6'
+TRACK_CREDITS_DIV_CLASS = 'Credit__Container-sc-96426b7f-0'
 
 
 def getAlbum(link):
@@ -24,21 +22,22 @@ def getAlbum(link):
     # Got valid page
     soup = BeautifulSoup(req.content, 'html.parser')
     try:
-      title = soup.find('h1', class_='header_with_cover_art-primary_info-title').get_text()
-      artist = soup.find('a', class_='header_with_cover_art-primary_info-primary_artist').get_text()
+      album_info = soup.find('div', class_=ALBUM_INFO_DIV_CLASS)
+      album_title = album_info.find('h1').get_text().strip()
+      artist = album_info.find('h2').get_text().strip()
     except:
       return 404
 
     # Found elements looking for
     conn = get_db_connection()
-    if (conn.execute(f"SELECT COUNT(*) FROM Albums Where title='{title}' and artist='{artist}'").fetchone()[0]) != 0:
+    if (conn.execute(f"SELECT COUNT(*) FROM Albums Where title='{album_title}' and artist='{artist}'").fetchone()[0]) != 0:
       conn.close()
       return 200
 
     # Doesn't already exist --> Add data to db
-    conn.execute('INSERT INTO Albums (title, artist, link) VALUES (?, ?, ?)', (title, artist, link))
+    conn.execute('INSERT INTO Albums (title, artist, link) VALUES (?, ?, ?)', (album_title, artist, link))
     conn.commit()
-    album_id = conn.execute(f"SELECT id FROM Albums WHERE title = '{title}' ;").fetchone()[0]
+    album_id = conn.execute(f"SELECT id FROM Albums WHERE title = '{album_title}' ;").fetchone()[0]
 
     tracks = soup.find_all('a', class_='u-display_block')
     for t in tracks:
@@ -50,14 +49,16 @@ def getAlbum(link):
         
         req = requests.get(track_link)
         soup = BeautifulSoup(req.content, 'html.parser')
-        roll = soup.find_all('div', class_=credit_div_class)
+        roll = soup.find_all('div', class_=TRACK_CREDITS_DIV_CLASS)
         for r in roll:
             line = r.get_text(separator='\n')
             field = line.split('\n')[0]
             names = ''.join(line.split('\n')[1:])
-            conn.execute("INSERT INTO Credits (field, names, track_id) VALUES (?, ?, ?)", (field, names, track_id))
-            conn.commit()
-            
+            if 'video' not in field.lower():
+              conn.execute("INSERT INTO Credits (field, names, track_id) VALUES (?, ?, ?)", (field, names, track_id))
+              conn.commit()
+        print(f'Got track: {title}')
+    print(f'Got album: {album_title}')
     conn.close()
     return 200
 
@@ -75,12 +76,9 @@ def getSong(link):
     roll = None
     try:
         # track title, link, album_id
-        # SongHeader-desktop__Title-sc-9c2f20c9-8 lmRiVQ
-        title = soup.find('h1', class_ = title_h1_class).get_text()
-        # HeaderArtistAndTracklist-desktop__ListArtists-sc-afd25865-1 brsnYs
-        artist = soup.find('div', class_ = artist_div_class).get_text()
-        # SongInfo__Credit-sc-4162678b-3 iFkpsR
-        roll = soup.find_all('div', class_ = credit_div_class)
+        title = soup.find('h1', class_ = TRACK_INFO_DIV_CLASS).get_text()
+        artist = soup.find('div', class_ = TRACK_INFO_DIV_CLASS).get_text()
+        roll = soup.find_all('div', class_ = TRACK_CREDITS_DIV_CLASS)
         call = []
         for r in roll:
           line = r.get_text(separator='\n')

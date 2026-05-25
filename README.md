@@ -4,7 +4,7 @@
 
 Create and activate a python virtual environment, download dependent packages, set flask environment variables, and run. View in `localhost:5000`. See example commands for Mac below.
 ```bash
-source env/bin/activate
+source .venv/bin/activate
 export FLASK_APP=app
 export FLASK_ENV=development
 flask --app app.py --debug run
