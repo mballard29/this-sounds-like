@@ -63,13 +63,14 @@ def generateStyles(link):
     html = urllib.request.urlopen(req).read()
     arr = np.asarray(bytearray(html), dtype=np.uint8)
     img = cv2.imdecode(arr, -1) # 'Load it as it is'
+    cv2_rgb_img = cv2.cvtColor(img, cv2.COLOR_BGRA2BGR)
 
     # START HERE
     # img = cv2.imread('nwtcdwyaof.png')
-    height, width, _ = np.shape(img)
+    height, width, _ = np.shape(cv2_rgb_img)
 
     # reshape the image to be a simple list of RGB pixels
-    image = img.reshape((height * width, 3))
+    image = cv2_rgb_img.reshape((height * width, _))
 
     # we'll pick the 5 most common colors
     num_clusters = 3
