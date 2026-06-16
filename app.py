@@ -225,7 +225,7 @@ def genStyles(link):
       background-color: {primary};
     }}
     """
-    f = open("static/css/getDataStyles.css", "w")
+    f = open("static/css/getDataStyles.css", "wt")
     f.write(content)
     f.close()
 
